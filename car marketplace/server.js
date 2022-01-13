@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
   res.send("hellooooooo")
 })
 
-app.use('/vehicule',vehicule_router)
+app.use('/gestion-vehicule',vehicule_router)
 
 app.listen(port, () => {
   //const v = Vehicule.build({type:"voiture",categorie:"limousine",marque:"mercedes",model:"a45",annee:"2014",kilometrage : 18240});
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(` app listening at http://localhost:${port}`)
 })
