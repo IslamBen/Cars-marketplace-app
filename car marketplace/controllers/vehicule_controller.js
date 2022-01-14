@@ -1,5 +1,4 @@
 const Vehicule = require('../models/vehicule');
-const sequelize = require('../util/database');
 
 exports.ajouter_vehicule = function (req, res) {
     const body = req.body

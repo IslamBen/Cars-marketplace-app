@@ -2,7 +2,7 @@ const express = require('express')
 const sequelize = require('./util/database')
 const bodyParser = require('body-parser');
 const vehicule_router = require('./routes/vehicule')
-
+const utilisateur_router = require('./routes/utilisateur')
 sequelize.sync()
   .then((res) => {
     console.log("syncronised")
@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/gestion-vehicule',vehicule_router)
+app.use('/gestion-utilisateur',utilisateur_router)
 
 app.listen(port, () => {
   //const v = Vehicule.build({type:"voiture",categorie:"limousine",marque:"mercedes",model:"a45",annee:"2014",kilometrage : 18240});

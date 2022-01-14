@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
+const {DataTypes } = require('sequelize');
 
 const sequelize = require('../util/database.js')
 
@@ -43,11 +43,6 @@ const Vehicule = sequelize.define('vehicule',{
         allowNull:false
     }
 });
-
-
-
-
-
 
 module.exports = Vehicule
 
