@@ -1,22 +1,22 @@
 const { DataTypes, Model } = require('sequelize');
 
 const sequelize = require('../util/database.js');
-const Vehicule = require('./vehicule.js');
+const Vehicule = require('./vehicle.model');
 
-const Utilisateur = Model.define('Utilisateur', {
+const User = Model.define('User', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    nom: {
+    name: {
         type: DataTypes.STRING,
 
     },
-    prenom: {
+    first_name: {
         type: DataTypes.STRING
     },
-    nom_utilisateur: {
+    user_name: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -37,15 +37,15 @@ const Utilisateur = Model.define('Utilisateur', {
         type:DataTypes.STRING,
         allowNull : false,
     },
-    actif : {
+    active : {
         type: DataTypes.BOOLEAN,
         defaultValue : false,
     }
 })
 
-Utilisateur.hasMany(Vehicule,{
-    foreignKey : 'proprietaireId',
+User.hasMany(Vehicule,{
+    foreignKey : 'ownerId',
     onDelete : 'CASCADE'
 });
 
-module.exports = Utilisateur
+module.exports = User

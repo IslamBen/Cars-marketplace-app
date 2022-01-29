@@ -1,13 +1,13 @@
 const express = require('express')
 const sequelize = require('./util/database')
 const bodyParser = require('body-parser');
-const vehicule_router = require('./routes/vehicule')
-const utilisateur_router = require('./routes/utilisateur')
+const vehicle_router = require('./routes/vehicle.router')
+const user_router = require('./routes/user.router')
+require('dotenv').config();
+
 sequelize.sync()
   .then((res) => {
     console.log("syncronised")
-    //const v = Vehicule.build({ type: "voiture", categorie: "limousine", marque: "mercedes", model: "a45", annee: "2014", kilometrage: 18240 });
-    //v.sayHello();
   })
   .catch(err => console.log(err))
 
@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
   res.send("hellooooooo")
 })
 
-app.use('/gestion-vehicule',vehicule_router)
-app.use('/gestion-utilisateur',utilisateur_router)
+app.use('/vehicle-management',vehicle_router)
+app.use('/user-management',user_router)
 
 app.listen(port, () => {
   //const v = Vehicule.build({type:"voiture",categorie:"limousine",marque:"mercedes",model:"a45",annee:"2014",kilometrage : 18240});

@@ -1,6 +1,6 @@
-const Vehicule = require('../models/vehicule');
+const Vehicule = require('../models/vehicle.model');
 
-exports.ajouter_vehicule = function (req, res) {
+exports.add_vehicle = function (req, res) {
     const body = req.body
     Vehicule.create(body)
         .then((vehicule) => {
@@ -17,7 +17,7 @@ exports.ajouter_vehicule = function (req, res) {
 
 }
 
-exports.lister_vehicules = function (req, res) {
+exports.list_vehicles = function (req, res) {
     Vehicule.findAll()
         .then(vehicules => {
             res.status(200).json({
@@ -32,7 +32,7 @@ exports.lister_vehicules = function (req, res) {
         })
 }
 
-exports.detail_vehicule = function (req, res) {
+exports.show_details = function (req, res) {
     const id = req.params.id
     Vehicule.findByPk(id)
         .then(vehicule => {
@@ -52,7 +52,7 @@ exports.detail_vehicule = function (req, res) {
         })
 }
 
-exports.modifier_vehicule = function (req, res) {
+exports.edit_vehicle = function (req, res) {
     const body = req.body
     const id = req.params.id
     Vehicule.update(body, {
@@ -72,7 +72,7 @@ exports.modifier_vehicule = function (req, res) {
 
 }
 
-exports.supprimer_vehicule = function (req, res) {
+exports.delete_vehicle=vehicle = function (req, res) {
     const id = req.params.id
     Vehicule.destroy({
         where: {

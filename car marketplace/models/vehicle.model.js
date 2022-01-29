@@ -2,7 +2,7 @@ const {DataTypes } = require('sequelize');
 
 const sequelize = require('../util/database.js')
 
-const Vehicule = sequelize.define('vehicule',{
+const Vehicle = sequelize.define('Vehicle',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,11 +12,11 @@ const Vehicule = sequelize.define('vehicule',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    categorie : {
+    category : {
         type:DataTypes.STRING,
         allowNull:false
     },
-    marque : {
+    brand : {
         type:DataTypes.STRING,
         allowNull:false
     },
@@ -24,7 +24,7 @@ const Vehicule = sequelize.define('vehicule',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    annee : {
+    year : {
         type:DataTypes.STRING,
         allowNull:false,
         validate:{
@@ -35,14 +35,14 @@ const Vehicule = sequelize.define('vehicule',{
             }
         }
     },
-    prix : {
+    price : {
         type:DataTypes.BIGINT,
     },
-    kilometrage:{
+    mileage:{
         type:DataTypes.INTEGER,
         allowNull:false
     }
 });
 
-module.exports = Vehicule
+module.exports = Vehicle
 
